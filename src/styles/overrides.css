@@ -1,0 +1,21 @@
+.page-dashboard #special-btn {
+  background: var(--primary-color) !important;
+}
+.page-dashboard .card {
+  padding: 25px !important;
+}
+.page-dashboard .container .card .title {
+  color: #000;
+}
+
+@media (width <=768px) {
+  .page-dashboard .container {
+    padding: 5px;
+  }
+}
+
+@media (width <=768px) {
+  .page-dashboard .container {
+    margin: 10px;
+  }
+}

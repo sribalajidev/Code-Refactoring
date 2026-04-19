@@ -1,0 +1,24 @@
+.btn {
+  background: var(--primary-color) !important;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+}
+.btn-primary {
+  background: var(--primary-color);
+}
+.btn-secondary {
+  background: var(--secondary-color);
+}
+#special-btn {
+  background: #00f !important;
+  margin-left: -20px;
+}
+.card {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+.card .title {
+  font-size: var(--spacing-sm);
+  color: var(--text-color);
+}

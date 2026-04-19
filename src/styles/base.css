@@ -1,0 +1,30 @@
+body {
+  font-family: Arial;
+  color: var(--text-color);
+  background: #fff;
+}
+#main-header {
+  color: var(--primary-color) !important;
+  margin: 10px;
+  padding: 5px  ;
+}
+.container {
+  width: 100%;
+  height: 100%;
+}
+.text-large {
+  font-size: 120%;
+  margin-top: -10px;
+}
+
+@media screen and (width <=768px) {
+  .text-large {
+    font-size: 100%;
+  }
+}
+
+@media screen and (width <=768px) {
+  .text-large {
+    margin-top: -5px;
+  }
+}

@@ -1,0 +1,26 @@
+.page-home .container {
+  padding: 20px !important;
+  background: #0f0;
+}
+.page-home .container .card {
+  width: 300px;
+  height: 200px;
+  margin: 15px;
+
+}
+
+
+#footer {
+            background: #000;
+  color: white;
+  padding: 10px;
+}
+
+
+@media (width <=768px) {
+
+  
+  .page-home .container .card {
+    width: 100%;
+  }
+}

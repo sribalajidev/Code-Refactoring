@@ -1,0 +1,8 @@
+:root {
+  --primary-color: #f00;
+  --secondary-color: #0f0;
+  --text-color: #333;
+  --font-main: arial, sans-serif;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+}

@@ -1,0 +1,37 @@
+{
+  "name": "code-refactoring",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint:css": "stylelint \"src/**/*.{css,scss}\"",
+    "lint:fix": "stylelint \"src/**/*.{css,scss}\" --fix",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sribalajidev/Code-Refactoring.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/sribalajidev/Code-Refactoring/issues"
+  },
+  "homepage": "https://github.com/sribalajidev/Code-Refactoring#readme",
+  "devDependencies": {
+    "@stylistic/stylelint-plugin": "^5.1.0",
+    "lint-staged": "^16.4.0",
+    "postcss-scss": "^4.0.9",
+    "stylelint": "^17.8.0",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-scss": "^7.0.0"
+  },
+  "lint-staged": {
+    "**/*.{css,scss}": [
+      "stylelint --fix",
+      "stylelint"
+    ]
+  }
+}
