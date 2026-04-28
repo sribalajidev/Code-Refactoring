@@ -1,0 +1,25 @@
+{
+  "name": "cssfix",
+  "version": "1.0.0",
+  "description": "Drupal CSS/SCSS refactor tool — removes !important and ID selectors, boosts specificity from real DOM ancestry",
+  "main": "cssfix.js",
+  "bin": { "cssfix": "./cssfix.js" },
+  "scripts": {
+    "test":       "node test/test.js",
+
+    "scan":       "node cssfix.js . scan",
+    "crawl":      "node cssfix.js . crawl --site http://localhost --twig ./templates",
+    "crawl:ddev": "node cssfix.js . crawl --site https://mysite.ddev.site --ignore-tls --twig ./templates",
+
+    "report":     "node cssfix.js ./css report",
+    "preview":    "node cssfix.js ./css preview",
+    "fix":        "node cssfix.js ./css fix",
+    "fix:scss":   "node cssfix.js ./scss fix --scss",
+    "diff":       "node cssfix.js ./css diff",
+    "restore":    "node cssfix.js ./css restore",
+    "undo":       "npm run restore"
+  },
+  "engines": { "node": ">=14.0.0" },
+  "keywords": ["css", "scss", "drupal", "refactor", "cli", "specificity"],
+  "license": "MIT"
+}

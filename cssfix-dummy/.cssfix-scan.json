@@ -1,0 +1,8 @@
+{
+  "projectType": "mixed",
+  "buildCommand": "yarn build",
+  "buildOutputDirs": [
+    "css"
+  ],
+  "scannedAt": "2026-04-25T16:44:08.697Z"
+}
