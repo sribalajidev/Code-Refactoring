@@ -1,8 +1,15 @@
 import fs from 'fs';
 import path from 'path';
 
-const variablesPath = './src/styles/variables.css';
-const rootDir = './src';
+// file paths
+const config = {
+  rootDir: './src',
+  variablesFile: './src/styles/variables.css'
+};
+
+const rootDir = path.resolve(config.rootDir);
+const variablesPath = path.resolve(config.variablesFile);
+
 const reportDir = './report';
 const reportFile = `${reportDir}/unmatched-values.txt`;
 
@@ -21,7 +28,16 @@ variablesContent.replace(/--([\w-]+)\s*:\s*([^;]+);/g, (_, name, value) => {
   valueMap[value.trim()] = name;
 });
 
-// console.log('Value Map:', valueMap); 
+// detect variable file
+const isVariableFile = filePath => {
+  const resolved = path.resolve(filePath);
+  const fileName = path.basename(filePath).toLowerCase();
+
+  return (
+    resolved === variablesPath ||
+    fileName.includes('variable')
+  );
+};
 
 // Get all css/scss files
 const getFiles = dir =>
@@ -35,7 +51,7 @@ const getFiles = dir =>
 
     if (
       (filePath.endsWith('.css') || filePath.endsWith('.scss')) &&
-      path.basename(filePath) !== 'variables.css'
+      !isVariableFile(filePath) // ✅ skip variable file
     ) {
       return [filePath];
     }
@@ -50,6 +66,14 @@ const unmatchedMap = new Map();
 
 // Process files
 files.forEach(file => {
+  const resolved = path.resolve(file);
+
+  // 🔒 double protection
+  if (isVariableFile(resolved)) {
+    console.log('Skipping variable file:', file);
+    return;
+  }
+
   let content = fs.readFileSync(file, 'utf8');
 
   let updated = content
@@ -105,12 +129,13 @@ files.forEach(file => {
 
 // Write report
 let output = '';
+
 unmatchedMap.forEach((entries, value) => {
   const totalOccurrences = entries.length;
+
   output += `\nValue: ${value} (${totalOccurrences} occurrences)\n`;
   output += '----------------------------------------\n';
 
-  // group by file
   const fileMap = {};
 
   entries.forEach(({ file, line }) => {
